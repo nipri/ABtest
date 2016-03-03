@@ -30,7 +30,7 @@ extern void SPI_close(int);//	fp = SPI_init(device);
 extern int SPI_transfer(int, uint8_t[]);
 extern int TCP_openSocket(void);
 extern int TCP_Send(int, char *);
-extern int serial_Send(char[]);
+extern int serial_Send(char*);
 
 
 char GPIObuf[64];
@@ -104,7 +104,7 @@ int main(void) {
 
 	uint8_t txArray[8] = {0x55, 0x5a, 0x49, 0x55, 0x66, 0x06, 0x35, 0x65};
 
-	char message[] = "Right Back Atcha!";
+	char *message = "Right Back Atcha!\r\n";
 
 //	printf("HELLO! Talking to %s\r\n", device);
 

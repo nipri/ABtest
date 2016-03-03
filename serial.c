@@ -98,7 +98,7 @@ void serial_Send(char *data) {
 
 	int bytes;
 	printf("Sending %s\r\n", data);
-	bytes = write(fd, "HELLO", 5);
+	bytes = write(fd, data, strlen(data));
 
 	 if (bytes < 0)
 		 perror("Write Error: \r\n");
