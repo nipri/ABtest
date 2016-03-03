@@ -20,7 +20,6 @@
 
 #include "AB2016.h"
 
-//void serialHandler(void);   /* definition of signal handler */
 void serial_Get(void);
 void serial_Send(char *);
 
@@ -43,15 +42,6 @@ int serialInit(char device[])
         perror("open_port: Unable to open serial port");
         return fd;
      }
-
- //    saio.sa_handler = serialHandler;
- //    saio.sa_flags = 0;
- //    saio.sa_restorer = NULL;
- //    sigaction(SIGIO, &saio, NULL);
-
-     //fcntlread_(fd, F_SETFL, FNDELAY);
- //    fcntl(fd, F_SETOWN, getpid());
- //    fcntl(fd, F_SETFL,  O_ASYNC);
 
      tcgetattr(fd,&termAttr);
 
@@ -106,18 +96,3 @@ void serial_Send(char *data) {
 		 printf("Bytes Written to fd %d:	%d\r\n", fd, bytes);
 }
 
-/*
-  void serialHandler ()
-  {
-	  int bytes;
-
-	  bytes = read(fd, &rx, 1);
-
-	  if (bytes < 0)
-		  perror("Read Error: \r\n");
-	  else
-		  printf("Bytes: %d	received data from UART: %c\r\n", bytes, rx);
-
-	  rx2 = rx;
-  }
-  */
