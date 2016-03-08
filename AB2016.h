@@ -24,7 +24,7 @@
 	#define debug(...)
 #endif
 
-unsigned char rx, rx2;
+unsigned char rx, rx2, TCP_rx[2];
 
 
 typedef struct arrow_frame {

@@ -12,7 +12,7 @@ static int ON = 0;
 void timer_handler (void)
 {
 
-	if (rx == 'a') {
+	if (TCP_rx[0] == 'a') {
 
 		if (ON == 0) {
 			GPIO_setValue(testled, 1);

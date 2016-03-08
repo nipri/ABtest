@@ -160,10 +160,10 @@ int main(void) {
 		sleep(1);
 		Vread = AD_poll(ADchannel, 0);
 //		printf("Voltage: %.2f\r\n", Vread);
-		printf("Received: %c\r\n", rx2);
-		serial_Send(message);
+		printf("Received: %s\r\n", TCP_rx);
+//		serial_Send(message);
 
-		if (TCPsock != -1) {
+		if (TCPsock != -1) {					// -1 if the client can't connect to a server.
 			sprintf(TXdata, "%.2f", Vread);
 			TCP_Send(TCPsock, TXdata);
 		}

@@ -76,16 +76,21 @@ int TCP_Send(int sock, char *data[]) {
 
 void TCP_Get(void) {
 
-	char reply[2000];
+//	char reply[2000];
+//	unsigned char rx[2];
 
 	while(1) {
 
-       if( recv(sock2 , reply , 2000 , 0) < 0)
+//       if( recv(sock2 , reply , 2000 , 0) < 0)
+       if( recv(sock2 , TCP_rx , 2 , 0) < 0)
        {
            perror("recv failed");
+
+       } else {
+    	   puts("Server reply :");
+    	   puts(TCP_rx);
        }
-      puts("Server reply :");
-      puts(reply);
+
    }
 
 }
